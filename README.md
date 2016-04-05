@@ -46,15 +46,17 @@ Also in tag wrap tag you can declare name of variable and save path. For example
 We have viewer at `/resources/views/site/home.blade.php` and one string to move into localization file (Local path in views is '/site/home.blade.php').
 Let's find out what we get after running `php artisan viewstolocales:run --onlylocale=en`:
 
-| Source string                                               |    Final string                         | Final localization file           | Comment             |
-| ------------------------------------------------------------|-----------------------------------------|-----------------------------------|---------------------|
-| `<h1>{{--@@--}}Some title{{--@@--}}</h1>`                   | `<h1>@lang('site/home.some_title')</h1>`  | `/resources/lang/en/site/home.php` |  `["some_title" => "Some title"]`   | Use original dir and file name, generate var name based on var text. |
-| `<h1>{{--@the_title@--}}Some title{{--@@--}}</h1>`          | `<h1>@lang('site/home.the_title')</h1>`   | `/resources/lang/en/site/home.php` |  `["the_title"  => "Some title"]`   | Use original dir and file name, set var name. |
 
+| Source string                                               | Final viwer string                        | Final localization file            | Final localization file            | Comment             |
+| ------------------------------------------------------------|-------------------------------------------|------------------------------------|------------------------------------|---------------------|
+| `<h1>{{--@@--}}`Some title`{{--@@--}}</h1>`                 | `<h1>@lang('site/home.some_title')</h1>`  | `/resources/lang/en/site/home.php` | `["some_title" => "Some title"]`   | **Use original dir and file name, generate var name based on var text.** |
+| `<h1>{{--@the_title@--}}`Some title`{{--@@--}}</h1>`        | `<h1>@lang('site/home.the_title')</h1>`   | `/resources/lang/en/site/home.php` | `["the_title"  => "Some title"]`   | **Use original dir and file name, set var name.** |
+| `<h1>{{--@.the_title@--}}`Some title`{{--@@--}}</h1>`       | `<h1>@lang('site/home.the_title')</h1>`   | `/resources/lang/en/site/home.php` | `["the_title"  => "Some title"]`   | `--||--` (same) |
+| `<h1>{{--@/.the_title@--}}`Some title`{{--@@--}}</h1>`      | `<h1>@lang('home.the_title')</h1>`        | `/resources/lang/en/home.php`      | `["the_title"  => "Some title"]`   | Put in root, user original file name, set var name. |
 
 Also remember that you can wrap big peaces of text that contains html tags:
 
-```
+```html
 {{--@@--}}
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
