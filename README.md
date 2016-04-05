@@ -48,5 +48,5 @@ Let's find out what we get after running "php artisan viewstolocales:run --onlyl
 
 | Source string                                               |    Final string                         | Final localization file           | Comment             |
 | ------------------------------------------------------------|-----------------------------------------|-----------------------------------|---------------------|
-| <h1>\{\{--@@--\}\}Some title\{\{--@@--\}\}</h1>             | <h1>@lang('site/home.some_title')</h1>  | /resources/lang/en/site/home.php  |   ["some_title" => "Some title"]   | Use original dir and file name, generate var name based on var text. |
-| <h1>\{\{--@the_title@--\}\}Some title\{\{--@@--\}\}</h1>    | <h1>@lang('site/home.the_title')</h1>   | /resources/lang/en/site/home.php  |   ["the_title"  => "Some title"]   | Use original dir and file name, set var name. |
+| <h1>\{\{\-\-@@\-\-\}\}Some title\{\{\-\-@@\-\-\}\}</h1>             | <h1>@lang('site/home.some_title')</h1>  | /resources/lang/en/site/home.php  |   ["some_title" => "Some title"]   | Use original dir and file name, generate var name based on var text. |
+| <h1>\{\{\-\-@the_title@\-\-\}\}Some title\{\{\-\-@@\-\-\}\}</h1>    | <h1>@lang('site/home.the_title')</h1>   | /resources/lang/en/site/home.php  |   ["the_title"  => "Some title"]   | Use original dir and file name, set var name. |
