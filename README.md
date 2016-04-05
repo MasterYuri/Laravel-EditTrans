@@ -35,7 +35,7 @@ And create new localization files (or append to existing) for all existing local
 
 ### Options
 
-With option "onlylocale" you can make it to generate only for one locale:
+With option `onlylocale` you can make it to generate only for one locale:
 
 ```
 php artisan viewstolocales:run --onlylocale=en
@@ -43,8 +43,8 @@ php artisan viewstolocales:run --onlylocale=en
 
 Also in tag wrap tag you can declare name of variable and save path. For example:
 
-We have viewer at '/resources/views/site/home.blade.php' and one string to move into localization file (Local path in views is '/site/home.blade.php').
-Let's find out what we get after running "php artisan viewstolocales:run --onlylocale=en":
+We have viewer at `/resources/views/site/home.blade.php` and one string to move into localization file (Local path in views is '/site/home.blade.php').
+Let's find out what we get after running `php artisan viewstolocales:run --onlylocale=en`:
 
 | Source string                                               |    Final string                         | Final localization file           | Comment             |
 | ------------------------------------------------------------|-----------------------------------------|-----------------------------------|---------------------|
