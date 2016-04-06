@@ -1,9 +1,9 @@
 {
-    "name": "masteryuriy/laravel-edit-trans",
+    "name": "masteryuri/laravel-edit-trans",
     "type": "library",
     "description": "Manage Laravel Translations",
     "keywords": [
-        "masteryuriy",
+        "masteryuri",
         "laravel-edit-trans",
         "manage localization",
         "generate localization"
