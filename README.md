@@ -14,7 +14,13 @@ Via Composer
 $ composer require masteryuri/laravel-edittrans
 ```
 
-Public config and public resources:
+Add service provider into `/config/app.php`:
+
+```
+'MasterYuri\EditTrans\ServiceProvider',
+```
+
+Publish config and public resources:
 
 ```
 php artisan vendor:publish --provider="MasterYuri\EditTrans\ServiceProvider"

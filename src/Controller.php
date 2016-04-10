@@ -105,7 +105,7 @@ class Controller extends BaseController
         $str .= var_export($vars, true);
         $str .= ";\n";
         
-		@$fs->makeDirectory(dirname($langPath));
+		@$fs->makeDirectory(dirname($langPath), 0755, true);
         return @$fs->put($langPath, $str);
     }
 
@@ -325,7 +325,7 @@ class Controller extends BaseController
             'vars'   => $vars,
             'errors' => $errors, 
 
-            'allow_save_for_lang' => self::cfg('allow_save_for_lang') && count($langs) > 1,
+            'allow_save_for_lang' => self::cfg('allow_save_for_lang') && count($langs) > 4,
 
             'richedit_upload_url' => action('\MasterYuri\EditTrans\Controller@uploadPhotoCKEditor4', ['_token' => csrf_token()]),
             
